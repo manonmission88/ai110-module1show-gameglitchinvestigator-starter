@@ -26,12 +26,22 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+  
+  it's a fun game to guess the number. There are few hints provided which you can use to guess the number in few attempts. 
+
 - [ ] Detail which bugs you found.
+  
+  The main bugs I found were that the secret number was visible in the debug section, the New Game button did not properly reset the game state, and the app allowed invalid guesses like negative numbers even though the guessing range should stay positive. The hint logic was also incorrect because the game sometimes told the player the wrong direction. These issues made the app confusing and stopped the game from working the way it was supposed to.
 - [ ] Explain what fixes you applied.
+
+  I moved the reusable game logic into `logic_utils.py` and added pytest tests to verify guess validation, hint behavior, and scoring. I fixed the input validation so guesses must stay inside the selected difficulty range, corrected the higher/lower hint messages, and updated Streamlit session state so New Game resets attempts, score, history, and input correctly. I also removed the secret from the debug display and improved the feedback messages so the app gives clearer responses after each guess.
 
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+- [x] Winning game demo
+
+![Winning game demo](guess_game.gif)
+
 
 ## 🚀 Stretch Features
 
